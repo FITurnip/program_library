@@ -72,8 +72,5 @@
 # End of https://www.toptal.com/developers/gitignore/api/c++,linux,visualstudiocode
 
 # ADDITIONAL
-*/test_case
-*/result
-
-#ADDITIONAL
-.git
+*/testcase/*
+*/result/*

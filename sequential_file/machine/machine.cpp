@@ -63,6 +63,7 @@ size_t SequentialFile::getTotalUnits() {
 bool SequentialFile::compare(SequentialFile &compFile) {
     unsigned long sizeFile = getTotalUnits(), sizeCompFile = compFile.getTotalUnits();
     unsigned long minSize = (sizeFile < sizeCompFile ? sizeFile : sizeCompFile);
+    unsigned long maxSize = (sizeFile > sizeCompFile ? sizeFile : sizeCompFile);
 
     unsigned long itr = 0;
     unsigned long comp = 0;
@@ -70,6 +71,8 @@ bool SequentialFile::compare(SequentialFile &compFile) {
         comp = _file_data[itr].compare(compFile._file_data[itr]);
         itr++;
     }
+    if(itr < maxSize) comp = -1;
+    
     return (comp == 0 ? 1 : 0);
 }
 
