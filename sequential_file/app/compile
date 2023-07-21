@@ -1,6 +1,6 @@
 #!/bin/bash
 
-appname="program_tester.exe"
+appname="app.exe"
 
 if [ -f $appname ]
 then
@@ -10,7 +10,7 @@ echo -e "\033[1;31mold $appname is destroyed.\n"
 fi
 
 echo -e "\033[0;97msource file  is being compiled."
-g++ main/main.cpp ../sequential_file/machine/machine.cpp machine/similarity_checker.cpp machine/duration_counter.cpp machine/compiler.cpp machine/executor.cpp machine/program_tester.cpp -o $appname
+g++ ../main/main.cpp ../machine/*.cpp -o $appname
 
 if [ -f $appname ]
 then

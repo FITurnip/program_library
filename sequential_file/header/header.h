@@ -8,6 +8,7 @@
 // DEPENDENCIES HEADER
 // ================================
 #include <vector>
+#include <string>
 
 // ================================
 // ACTUAL HEADER CONTENT
@@ -40,6 +41,9 @@ class SequentialFile {
         std::vector<std::string> getAll();
         std::string getData(unsigned long);
         size_t getTotalUnits();
+
+        /* Comparation */
+        bool compare(SequentialFile &);
 };
 
 #endif // __SEQUENTIAL_FILE_INCLUDED__

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+appname="app.exe"
+
+if [ -f $appname ]
+then
+echo -e "old $appname is being destroyed."
+rm -rf $appname
+echo -e "\033[1;31mold $appname is destroyed.\n"
+fi
+
+echo -e "\033[0;97msource file  is being compiled."
+g++ ../main/main.cpp ../machine/*.cpp -o $appname
+
+if [ -f $appname ]
+then
+echo -e "\n\033[32msource file  is compiled successfully."
+echo -e "\033[34m$appname is created."
+fi

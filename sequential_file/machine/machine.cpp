@@ -59,4 +59,18 @@ std::string SequentialFile::getData(unsigned long index) {
 size_t SequentialFile::getTotalUnits() {
     return _file_data.size();
 }
+
+bool SequentialFile::compare(SequentialFile &compFile) {
+    unsigned long sizeFile = getTotalUnits(), sizeCompFile = compFile.getTotalUnits();
+    unsigned long minSize = (sizeFile < sizeCompFile ? sizeFile : sizeCompFile);
+
+    unsigned long itr = 0;
+    unsigned long comp = 0;
+    while(comp == 0 && itr < minSize) {
+        comp = _file_data[itr].compare(compFile._file_data[itr]);
+        itr++;
+    }
+    return (comp == 0 ? 1 : 0);
+}
+
 #undef pb
