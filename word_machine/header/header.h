@@ -1,22 +1,41 @@
+// ================================
+// GUARD MASTER HEADER
+// ================================
+#ifndef __WORD_MACHINE_INCLUDED__
+#define __WORD_MACHINE_INCLUDED__
+
+// ================================
+// ACTUAL HEADER CONTENT
+// ================================
 using namespace std;
 class WordMachine {
-    string tape, cw;
-    char delimiter;
-    size_t finalIdx, wlen;
+    private:
+        /* Property */
+        string tape, cw;
+        char delimiter;
+        size_t finalIdx, wlen;
 
-    void pointRight();
+        /* Point the word */
+        void pointRight();
 
     public:
-    void setTape(string);
-    void setDelimiter(char);
-    void set(string, char = 0);
+        /* Set value */
+        void setTape(string);
+        void setDelimiter(char);
+        void set(string, char = 0);
 
-    void start();
-    void reset();
-    bool eop();
+        /* On off machine */
+        void start();
+        void reset();
+        bool eop();
 
-    void inc();
-    size_t getlen();
-    string getcw();
-    string getTape();
+        /* Point the word */
+        void inc();
+
+        /* Get property */
+        size_t getlen();
+        string getcw();
+        string getTape();
 };
+
+#endif // __WORD_MACHINE_INCLUDED__

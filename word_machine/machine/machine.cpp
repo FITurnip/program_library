@@ -1,14 +1,12 @@
+// ================================
+// DEPENDENCIES HEADER
+// ================================
 #include <string>
 #include "../header/header.h"
-void WordMachine::pointRight() {
-    while(tape[finalIdx] == ' ') finalIdx++; // skip the space char
-    
-    size_t initIdx = finalIdx;
-    while(tape[finalIdx] != ' ' && !eop()) finalIdx++; // get one tape
-    cw = tape.substr(initIdx, finalIdx);
-    wlen = finalIdx - initIdx;
-}
 
+/**********************************
+ * Set value
+ **********************************/
 void WordMachine::setTape(string src) {
     tape = src;
 }
@@ -22,6 +20,9 @@ void WordMachine::set(string srcTape, char srcDelimiter) {
     delimiter = srcDelimiter;
 }
 
+/**********************************
+ * On off machine
+ **********************************/
 void WordMachine::start() {
     finalIdx = 0;
     pointRight();
@@ -35,10 +36,27 @@ bool WordMachine::eop() {
     return (tape[finalIdx] == delimiter);
 }
 
+/**********************************
+ * Point the word
+ **********************************/
 void WordMachine::inc() {
     pointRight();
 }
 
+void WordMachine::pointRight() {
+    // skip the space char
+    while(tape[finalIdx] == ' ') finalIdx++;
+    
+    // get final of word
+    size_t initIdx = finalIdx;
+    while(tape[finalIdx] != ' ' && !eop()) finalIdx++;
+    cw = tape.substr(initIdx, finalIdx);
+    wlen = finalIdx - initIdx;
+}
+
+/**********************************
+ * Get property
+ **********************************/
 size_t WordMachine::getlen() {
     return wlen;
 }

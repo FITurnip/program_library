@@ -44,11 +44,15 @@ void SequentialFile::write() {
     file.close();
 }
 
+std::string SequentialFile::getPath() {
+    return _file_path;
+}
+
 std::vector<std::string> SequentialFile::getAll() {
     return _file_data;
 }
 
-std::string SequentialFile::getData(size_t index) {
+std::string SequentialFile::getData(unsigned long index) {
     return _file_data[index];
 }
 
