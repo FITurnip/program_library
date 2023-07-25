@@ -72,4 +72,4 @@
 # End of https://www.toptal.com/developers/gitignore/api/c++,linux,visualstudiocode
 
 *.txt
-testcase/
+*/testcase/
