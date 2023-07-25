@@ -18,6 +18,7 @@ class SequentialFile {
         /* Property */
         std::string _file_path;
         char _delimiter;
+        unsigned long _last_check_iterator;
 
         /* Content */
         std::vector<std::string> _file_data;
@@ -33,8 +34,8 @@ class SequentialFile {
         SequentialFile(const SequentialFile & file);
 
         /* Interaction with file */
-        void read();
-        void write();
+        bool read();
+        bool write();
 
         /* Content */
         std::string getPath();
@@ -44,6 +45,7 @@ class SequentialFile {
 
         /* Comparation */
         bool compare(SequentialFile &);
+        unsigned long getLastCheckIterator();
 };
 
 #endif // __SEQUENTIAL_FILE_INCLUDED__

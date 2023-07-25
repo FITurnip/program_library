@@ -1,0 +1,5 @@
+g++ ../../testcase/*.cpp -o ../../testcase/a.out
+../../testcase/a.out
+../../testcase/testcase/input
+../../testcase/testcase/output
+1
